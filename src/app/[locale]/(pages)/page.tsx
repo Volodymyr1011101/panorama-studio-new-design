@@ -17,10 +17,10 @@ export default function HomePage() {
       <section className={styles.roomsSection}>
         <Rooms />
       </section>
-      <section className="text-white flex justify-center mb-8">
-        <Backgrounds title={'Mamy w studiu papierowe tła😍'} image={<Image {...imageConfig.backgrounds} />} text={text} />
-      </section>
-      <section className="px-6 mb-8">
+      {/*<section className="text-white flex justify-center mb-8">*/}
+      {/*  <Backgrounds title={'Mamy w studiu papierowe tła😍'} image={<Image {...imageConfig.backgrounds} />} text={text} />*/}
+      {/*</section>*/}
+      <section className=" mb-8">
         <Gallery />
       </section>
       <section className={styles.maps}>
