@@ -16,15 +16,15 @@ const Nav: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
         },
         {
             name: t('reservation'),
-            link: '/equipment'
-        },
-        {
-            name: t('rules'),
             link: '/reservation'
         },
         {
-            name: t('contact'),
+            name: t('rules'),
             link: '/rules'
+        },
+        {
+            name: t('contact'),
+            link: '/contact-us'
         },
     ];
     return (

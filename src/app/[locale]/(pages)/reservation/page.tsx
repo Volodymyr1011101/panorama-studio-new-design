@@ -1,9 +1,15 @@
-import type { NextComponentType, NextPageContext } from 'next';
+'use client'
 
+import type { NextComponentType, NextPageContext } from 'next';
+import Bookero from "@/app/components/Bookero/Bookero";
+import { useLocale } from 'next-intl';
+import './styles.scss';
 interface Props {}
 
 const Page: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
-    return <div className="bg-black h-[100vh] flex items-center justify-center text-white">
+    const locale = useLocale();
+    return <div className="flex items-center justify-center text-white pt-">
+        <Bookero locale={locale}/>
     </div>;
 };
 

@@ -1,4 +1,3 @@
-import { CardProps } from './components/ui/workCard';
 
 export const navigation = [
     {
@@ -14,7 +13,7 @@ export const navigation = [
         anchor: 'process'
     },
     {
-        label: 'contact',
+        label: 'contact-us',
         anchor: 'footer'
     },
 ];
@@ -52,7 +51,7 @@ export const services = [
     }
 ];
 
-export const process: CardProps[] = [
+export const process = [
     {
         imageSrc: 'Icon(1).png',
         title: 'analysis_title',
