@@ -1,0 +1,10 @@
+.button {
+    @apply p-3 text-white rounded-[12px];
+    background: rgb(255, 44, 235);
+    background: linear-gradient(90deg, rgba(255, 44, 235, 1) 0%, rgba(83, 116, 236, 1) 100%);
+    transform: scale(1);
+    transition: transform 0.2s linear;
+    &:hover {
+        transform: scale(0.95);
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "Header": {
+    "main": "Główna",
+    "reservation": "Rezerwacja online",
+    "rules": "Regulamin",
+    "contact": "Kontakt"
+  },
+  "Hero": {
+    "subtitle": "Studio w sercu Wrocławia",
+    "description": "Panorama Studio  - miejsce, gdzie każdy, od początkującego fotografa do doświadczonego profesjonała, może zrealizować swoje pomysły."
+  },
+  "Rooms": {
+    "aqua_light": "Aqua Light",
+    "aqua_dark": "Aqua dark",
+    "make_up": "Sala Make-up",
+    "art": "Sala Art",
+    "white": "Sala White"
+  }
+}

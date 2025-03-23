@@ -1,0 +1,1 @@
+.list{@apply flex gap-4}@media screen and (max-width: 900px){.list{@apply flex-col items-center}}.list a{@apply block p-3 relative text-black}.list a::after{content:"";display:block;width:0;height:2px;background:#fff;background:linear-gradient(90deg, rgb(255, 255, 255) 51%, rgba(255, 255, 255, 0) 100%);transition:width .3s linear}.list a:hover:after{width:100%}

@@ -1,0 +1,1 @@
+.burger{display:none}@media screen and (max-width: 900px){.burger{position:relative;width:40px;height:27px;bottom:0px;right:10px;display:block}}.line{position:absolute;background-color:#000;width:100%;height:4px;display:block;border-radius:12px}.top{top:0}.middle{top:50%;transform:translateY(-50%)}.bottom{bottom:0}.active{display:none}

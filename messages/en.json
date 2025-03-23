@@ -1,0 +1,19 @@
+{
+  "Header": {
+    "main": "Main",
+    "reservation": "Reservation",
+    "rules": "Rules",
+    "contact": "Contacts"
+  },
+  "Hero": {
+    "subtitle": "Studio in the heart of Wrocław",
+    "description": "Panorama Studio - a place where everyone, from a beginner photographer to an experienced professional, can realize their ideas."
+  },
+  "Rooms": {
+    "aqua_light": "Aqua Light",
+    "aqua_dark": "Aqua Dark",
+    "make_up": "Make-up Room",
+    "art": "Art Room",
+    "white": "White Room"
+  }
+}

@@ -1,0 +1,1 @@
+.heroSection{@apply relative mb-6}@media screen and (max-width: 768px){.heroSection{height:100%}.heroSection img{height:100%;-o-object-fit:cover;object-fit:cover}}.roomsSection{@apply flex flex-col gap-6 mb-8}@media screen and (max-width: 768px){.roomsSection{@apply px-4}}
