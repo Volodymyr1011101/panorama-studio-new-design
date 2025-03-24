@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
 
 const Bookero = ({locale}: {locale: string}) => {
     useEffect(() => {
@@ -27,7 +27,12 @@ const Bookero = ({locale}: {locale: string}) => {
         }
     }, [locale]);
 
-    return <div id="bookero"></div>;
+    return (
+        <>
+        <div id="bookero"></div>
+        </>
+
+    );
 };
 
 export default Bookero;

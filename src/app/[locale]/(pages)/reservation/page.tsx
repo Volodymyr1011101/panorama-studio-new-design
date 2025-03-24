@@ -8,7 +8,7 @@ interface Props {}
 
 const Page: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     const locale = useLocale();
-    return <div className="flex items-center justify-center text-white pt-">
+    return <div className="flex items-center justify-center text-white pt-[50px] md:pt-[0]">
         <Bookero locale={locale}/>
     </div>;
 };

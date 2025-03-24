@@ -7,6 +7,10 @@
         text-wrap: balance;
     }
 }
+
+body, html {
+    scroll-behavior: smooth;
+}
 .slick-slide {
     display: flex !important;
     justify-content: center;
