@@ -10,12 +10,12 @@ import styles from './Gallery.module.scss';
 import { getImages, getImagesFromDataBase } from '@/helpers';
 import { PropagateLoader } from 'react-spinners';
 interface Props {
-    images?: string[];
+    bd_path?: string;
 }
-const Gallery2 = () => {
+const Gallery2 = ({ bd_path }: Props) => {
     const [galleryImages, setGalleryImages] = useState<string[] | []>([]);
 
-    const listRef = ref(storage, 'image');
+    const listRef = ref(storage, bd_path);
     // useEffect(() => {
     //     listAll(listRef)
     //         .then((res) => {
@@ -69,7 +69,7 @@ const Gallery2 = () => {
     }, []);
     const photos = galleryImages
         .map(src => {
-            const matcher = src.match(/\.(\d+)x(\d+)\.(jpg|JPG|jpeg|png)/);
+            const matcher = src.match(/\.(\d+)x(\d+)\.(jpg|JPG|jpeg|png|webp)/);
 
             // Check if the match was successful
             if (!matcher) {

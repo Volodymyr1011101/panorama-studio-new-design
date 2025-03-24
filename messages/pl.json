@@ -14,7 +14,9 @@
     "aqua_dark": "Aqua dark",
     "make_up": "Sala Make-up",
     "art": "Sala Art",
-    "white": "Sala White"
+    "white": "Sala White",
+    "more": "Szczegóły",
+    "white_description": "W tej sali możesz fotografować zarówno przy sztucznym, jak i naturalnym światłem. //Sala jest wyposażona w klimatyzację. Zawsze utrzymujemy cykloramę w czystości, abyś nie musiał tracić czasu na retuszowanie zdjęć."
   },
   "Rules": {
     "title": "Regulamin studia",
@@ -53,5 +55,10 @@
       },
       "7": "Życzymy przyjemnego i komfortowego pobytu u nas! Panorama studio - tworzymy atmosferę pięknej sesji dla Ciebie!"
     }
-  }
+  },
+  "equipment": "SPRZĘT",
+  "add_info_session": "* Rzeczywisty czas sesji przy rezerwacji 1 godziny ~  55 minut, a dodatkowe 5 minut potrzebujemy na posprzątanie sali, aby kolejni klienci mogli rozpocząć swoją sesję punktualnie.",
+  "backgrounds_title": "Papierowe tła",
+  "backgrounds_description": "Tła są wliczonę w cenę wynajmu. Już są dostępne beżowy, czarny, szary, brązowy,\nniebieski, różowy, jasnozielony, czerwony, zielony. \nJeśli potrzebujesz color, którego nie mamy w dostępności,\nnapisz do nas, zamówimy go dla ciebe."
+
 }

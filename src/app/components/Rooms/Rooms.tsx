@@ -6,13 +6,14 @@ import ButtonComponent from '../ui/Button';
 import Room from '../ui/Room/Room';
 import styles from './Rooms.module.scss';
 import { useTranslations } from 'next-intl';
-interface Props { }
+interface Props {}
 
 interface IRooms {
     image: IIMage;
     roomName: string;
     pricePerOur: number;
     additionalPrice?: number;
+    navigation: string;
 }
 
 const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
@@ -21,29 +22,34 @@ const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
         {
             image: { ...imageConfig.white },
             roomName: t('white'),
-            pricePerOur: 130
+            pricePerOur: 130,
+            navigation: 'white'
         },
         {
             image: { ...imageConfig.art },
             roomName: t('art'),
-            pricePerOur: 130
+            pricePerOur: 130,
+            navigation: 'art'
         },
         {
             image: { ...imageConfig.aquaLight },
             roomName: t('aqua_light'),
             pricePerOur: 300,
-            additionalPrice: 150
+            additionalPrice: 150,
+            navigation: 'aqua_light'
         },
         {
             image: { ...imageConfig.aquaBlack },
             roomName: t('aqua_dark'),
             pricePerOur: 300,
-            additionalPrice: 150
+            additionalPrice: 150,
+            navigation: 'aqua_dark'
         },
         {
             image: { ...imageConfig.makeUp },
             roomName: t('make_up'),
-            pricePerOur: 20
+            pricePerOur: 20,
+            navigation: 'make_up'
         }
     ];
     return (
@@ -56,20 +62,20 @@ const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                     <div className={styles['flip-container']} key={room.image.src + room.image.width}>
                         <div className={styles.flipper}>
                             <div className={styles.front}>
-                                <Room image={room.image} roomName={room.roomName} />
+                                <Room image={room.image} roomName={room.roomName} navigation={`/room/${room.navigation}`} />
                             </div>
-                            <div className={styles.back}>
-                                <div className="text-white text-center">
-                                    <p>
-                                        {room.pricePerOur}zł/{'hour'}
-                                    </p>
-                                    {room.additionalPrice && <p className=" max-w-[200px]">{room.additionalPrice + 'zł' + ' ' + 'nextHour'}</p>}
-                                </div>
-                                <div className={styles.buttons}>
-                                    <ButtonComponent text={'details'} event={() => console.log(111)} />
-                                    <ButtonComponent text={'reservation'} event={() => console.log(111)} />
-                                </div>
-                            </div>
+                            {/*<div className={styles.back}>*/}
+                            {/*    <div className="text-white text-center">*/}
+                            {/*        <p>*/}
+                            {/*            {room.pricePerOur}zł/{'hour'}*/}
+                            {/*        </p>*/}
+                            {/*        {room.additionalPrice && <p className=" max-w-[200px]">{room.additionalPrice + 'zł' + ' ' + 'nextHour'}</p>}*/}
+                            {/*    </div>*/}
+                            {/*    <div className={styles.buttons}>*/}
+                            {/*        <ButtonComponent text={'details'} event={() => console.log(111)} />*/}
+                            {/*        <ButtonComponent text={'reservation'} event={() => console.log(111)} />*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 ))}

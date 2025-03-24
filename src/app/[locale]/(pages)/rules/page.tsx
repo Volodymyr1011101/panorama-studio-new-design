@@ -16,7 +16,7 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
         ));
     };
     return (
-        <div>
+        <div className={`pt-[90px] md:pt-0 px-4`}>
             <h1 className={`text-center text-[34px] font-[500]`}>{t('title')}</h1>
             <ul className={`text-center`}>
                 {rules.map((_, index) => (
