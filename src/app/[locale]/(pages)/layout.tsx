@@ -7,36 +7,32 @@ import { getMessages } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import './globals.scss';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ['latin'] });
 
-export default async function LocaleLayout({
-  children,
-  params
-}: {
-  children: React.ReactNode;
-  params: { locale: 'en' | 'ua'; };
-}) {
-  // @ts-ignore
-  const { locale }: 'en' | 'ua' = await params;
+export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: { locale: 'en' | 'ua' } }) {
+    // @ts-ignore
+    const { locale }: 'en' | 'ua' = await params;
 
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
+    if (!routing.locales.includes(locale)) {
+        notFound();
+    }
 
-  const messages = await getMessages();
+    const messages = await getMessages();
 
-  return (
-    <html lang={locale}>
-      <body className={` ${inter.className}`}>
-        <NextIntlClientProvider messages={messages}>
-          <div className='max-w-[980px] m-auto overflow-hidden relative'>
-              <Header />
-              {children}
-          </div>
-          <Footer />
-        </NextIntlClientProvider>
-        <ScrollToTop />
-      </body>
-    </html>
-  );
+    return (
+        <html lang={locale}>
+            <body className={` ${inter.className}`}>
+                <NextIntlClientProvider messages={messages}>
+                    <div className="max-w-[980px] m-auto overflow-hidden relative">
+                        <Header />
+                        {children}
+                        <SpeedInsights />
+                    </div>
+                    <Footer />
+                </NextIntlClientProvider>
+                <ScrollToTop />
+            </body>
+        </html>
+    );
 }
