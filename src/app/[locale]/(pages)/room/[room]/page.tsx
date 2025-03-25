@@ -11,7 +11,7 @@ import { ref } from 'firebase/storage';
 import { storage } from '@/app/firebase';
 import { PropagateLoader } from 'react-spinners';
 import { equipmentList } from '@/app/[locale]/(pages)/room/[room]/data';
-import NotFoundPage from '@/app/not-found';
+import NotFoundPage from '@/app/[locale]/(pages)/not-found';
 
 const Room = () => {
     const router = useRouter();
