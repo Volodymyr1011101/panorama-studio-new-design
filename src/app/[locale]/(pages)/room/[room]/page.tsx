@@ -1,42 +1,26 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { AQUA_DARK, AQUA_LIGHT, ART, WHITE } from '@/app/[locale]/(pages)/room/[room]/enums';
 import { useTranslations } from 'next-intl';
 import Gallery from '@/app/components/ui/Gallery';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { getImages } from '@/helpers';
+import { getImages, getImagesFromDataBase } from '@/helpers';
 import { ref } from 'firebase/storage';
 import { storage } from '@/app/firebase';
 import { PropagateLoader } from 'react-spinners';
 import { equipmentList } from '@/app/[locale]/(pages)/room/[room]/data';
-import NotFoundPage from '@/app/[locale]/(pages)/not-found';
 
 const Room = () => {
-    const router = useRouter();
     const t = useTranslations();
     const { room } = useParams();
-
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [roomData, setRoomData] = useState<any>(null);
     const [equipmentImages, setEquipmentImages] = useState<string[] | []>([]);
 
     const randomNumber = Math.floor(Math.random() * 10);
     const listRef = ref(storage, 'equipment');
-
-    useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const images = await getImages(listRef);
-                setEquipmentImages(images);
-            } catch (error) {
-                console.error('Ошибка загрузки изображений:', error);
-            }
-        };
-
-        fetchImages();
-    }, []);
-
     useEffect(() => {
         switch (room) {
             case 'white':
@@ -54,17 +38,36 @@ const Room = () => {
             default:
                 return;
         }
-    }, [room, router]);
+    }, []);
+    useEffect(() => {
+        const fetchImages = async (): Promise<void> => {
+            try {
+                const images = await getImagesFromDataBase(listRef);
+                setEquipmentImages(images);
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Ошибка загрузки изображений:', error);
+            }
+        };
 
-    if (!roomData) return <NotFoundPage />; // Пока нет данных, ничего не рендерим
-
+        fetchImages();
+    }, []);
+    {
+        if (isLoading) {
+            return (
+                <div className={`h-[100vh] flex items-center justify-center`}>
+                    <PropagateLoader />
+                </div>
+            );
+        }
+    }
     return (
         <div className={`pt-[80px] md:pt-0 px-4`}>
             <Image src={roomData.HEADER_IMAGE} alt={'main_photo'} width={980} height={317} className={`rounded-2xl mb-8`} />
             <h1 className={'text-center text-[30px]'}>{t(`Rooms.${room}`)}</h1>
             {t(`Rooms.${room}_description`)
                 .split('//')
-                .map((line, i) => (
+                .map(line => (
                     <p key={line}>{line}</p>
                 ))}
             <div className={`mb-8 pt-8`}>

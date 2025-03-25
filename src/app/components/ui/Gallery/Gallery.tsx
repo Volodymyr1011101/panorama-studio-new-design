@@ -1,13 +1,13 @@
 'use client';
 import { storage } from '@/app/firebase';
-import { getDownloadURL, listAll, ref } from 'firebase/storage';
+import { ref } from 'firebase/storage';
 import { useEffect, useState } from 'react';
 import { RowsPhotoAlbum } from 'react-photo-album';
 import 'react-photo-album/rows.css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import styles from './Gallery.module.scss';
-import { getImages, getImagesFromDataBase } from '@/helpers';
+import { getImages } from '@/helpers';
 import { PropagateLoader } from 'react-spinners';
 interface Props {
     bd_path?: string;
@@ -37,13 +37,13 @@ const Gallery2 = ({ bd_path }: Props) => {
     //         });
     // }, []);
     const breakpoints = [3840, 1920, 1080, 640, 384, 256, 128];
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    };
+    // const settings = {
+    //     dots: true,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1
+    // };
     // const photos = galleryImages.map((item, index) => {
     //     return {
     //         src: item,
@@ -53,7 +53,6 @@ const Gallery2 = ({ bd_path }: Props) => {
     //     };
     // });
 
-    const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(-1);
     useEffect(() => {
         const fetchImages = async () => {

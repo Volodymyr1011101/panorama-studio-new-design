@@ -8,11 +8,18 @@ const nextConfig = {
         ignoreDuringBuilds: true
     },
     images: {
-        domains: ['firebasestorage.googleapis.com']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'firebasestorage.googleapis.com',
+                port: '',
+                pathname: '/**'
+            }
+        ]
     },
     typescript: {
         ignoreBuildErrors: true
     }
 };
-
+//@ts-ignore
 export default withNextIntl(nextConfig);
