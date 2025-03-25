@@ -1,9 +1,8 @@
 'use client';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
-const Bookero = ({locale}: {locale: string}) => {
+const Bookero = ({ locale }: { locale: string }) => {
     useEffect(() => {
-        console.log(locale);
         if (typeof window !== 'undefined') {
             (window as any).bookero_config = {
                 id: 'pqSCCd2iS6fs',
@@ -11,7 +10,7 @@ const Bookero = ({locale}: {locale: string}) => {
                 type: 'calendar',
                 position: '',
                 plugin_css: true,
-                lang: locale,
+                lang: locale
             };
 
             const script = document.createElement('script');
@@ -29,9 +28,8 @@ const Bookero = ({locale}: {locale: string}) => {
 
     return (
         <>
-        <div id="bookero"></div>
+            <div id="bookero"></div>
         </>
-
     );
 };
 

@@ -1,5 +1,3 @@
-'use client';
-
 import type { NextComponentType, NextPageContext } from 'next';
 import Bookero from '@/app/components/Bookero/Bookero';
 import { useLocale } from 'next-intl';

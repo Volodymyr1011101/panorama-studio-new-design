@@ -2,13 +2,15 @@ import Backgrounds from '@/app/components/Backgrounds/Backgrounds';
 import HeroComponent from '@/app/components/Hero';
 import Rooms from '@/app/components/Rooms/Rooms';
 import Gallery from '@/app/components/ui/Gallery';
-import { imageConfig } from '@/lib/imageConfig';
-import Image from 'next/image';
 import styles from './page.module.scss';
+import { getImagesFromDataBase } from '@/helpers';
+import { ref } from 'firebase/storage';
+import { storage } from '@/app/firebase';
 
-export default function HomePage() {
-    const text =
-        '<p>Już są dostępne beżowy, czarny, szary, brązowy, niebieski, różowy, jasnozielony. </p><p>Jeśli dla twojej sesji jest potrzebne papierowe tło, poprostu powiedz nam o tym przy rezerwacji sali 😉</p><p>Tła są wliczonę w cenę wynajmu🔥 Także, jeśli potrzebujesz color, którego nie mamy w dostępności, napisz do nas, zamówimy go dla ciebe🫶🏻</p>';
+export default async function HomePage() {
+    const listRef = ref(storage, 'image');
+
+    const images = await getImagesFromDataBase(listRef);
     return (
         <div className={`px-4 pt-[102px] md:p-4`}>
             <section className={styles.heroSection}>
@@ -17,11 +19,8 @@ export default function HomePage() {
             <section className={styles.roomsSection}>
                 <Rooms />
             </section>
-            {/*<section className="text-white flex justify-center mb-8">*/}
-            {/*  <Backgrounds title={'Mamy w studiu papierowe tła😍'} image={<Image {...imageConfig.backgrounds} />} text={text} />*/}
-            {/*</section>*/}
             <section className=" mb-8">
-                <Gallery bd_path={'image'} />
+                <Gallery galleryImages={images} />
             </section>
             <section className={styles.maps}>
                 <iframe

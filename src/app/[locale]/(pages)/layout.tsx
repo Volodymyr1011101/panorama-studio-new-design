@@ -17,7 +17,6 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     if (!routing.locales.includes(locale)) {
         notFound();
     }
-
     const messages = await getMessages();
 
     return (

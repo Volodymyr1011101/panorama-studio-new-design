@@ -9,65 +9,12 @@ import 'yet-another-react-lightbox/styles.css';
 import styles from './Gallery.module.scss';
 import { getImages } from '@/helpers';
 import { PropagateLoader } from 'react-spinners';
-interface Props {
-    bd_path?: string;
-}
-const Gallery2 = ({ bd_path }: Props) => {
-    const [galleryImages, setGalleryImages] = useState<string[] | []>([]);
 
-    const listRef = ref(storage, bd_path);
-    // useEffect(() => {
-    //     listAll(listRef)
-    //         .then((res) => {
-    //             res.prefixes.forEach((folderRef) => {
-    //                 // All the prefixes under listRef.
-    //                 // You may call listAll() recursively on them.
-    //             });
-    //             res.items.forEach((itemRef) => {
-    //                 const imageRef = itemRef.fullPath;
-    //                 getDownloadURL(ref(storage, imageRef)).then((url) => {
-    //                     setGalleryImages((prev) => [...prev, url]);
-    //                 });
-    //
-    //                 // All the items under listRef.
-    //             });
-    //         })
-    //         .catch((error) => {
-    //             // Uh-oh, an error occurred!
-    //         });
-    // }, []);
+const Gallery2 = ({ galleryImages }: { galleryImages: string[] }) => {
     const breakpoints = [3840, 1920, 1080, 640, 384, 256, 128];
-    // const settings = {
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1
-    // };
-    // const photos = galleryImages.map((item, index) => {
-    //     return {
-    //         src: item,
-    //         width: index % 2 === 0 ? 600 : 1000,
-    //         height: index % 2 === 0 ? 800 : 600,
-    //         original: item
-    //     };
-    // });
-
     const [index, setIndex] = useState(-1);
-    useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const images = await getImages(listRef);
-                setGalleryImages(images);
-            } catch (error) {
-                console.error('Ошибка загрузки изображений:', error);
-            }
-        };
-
-        fetchImages();
-    }, []);
     const photos = galleryImages
-        .map(src => {
+        ?.map((src: string) => {
             const matcher = src.match(/\.(\d+)x(\d+)\.(jpg|JPG|jpeg|png|webp)/);
 
             // Check if the match was successful
@@ -94,7 +41,7 @@ const Gallery2 = ({ bd_path }: Props) => {
 
     return (
         <div className={styles.wrapper}>
-            {galleryImages.length ? (
+            {galleryImages?.length ? (
                 <>
                     <RowsPhotoAlbum photos={photos} targetRowHeight={150} spacing={3} onClick={({ index: current }) => setIndex(current)} />
                     <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />

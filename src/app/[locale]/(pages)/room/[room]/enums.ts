@@ -10,3 +10,6 @@ export enum AQUA_DARK {
 export enum AQUA_LIGHT {
     HEADER_IMAGE = '/images/images/main-bg.png'
 }
+export enum DEFAULT {
+    HEADER_IMAGE = '/images/images/main-bg.png'
+}
