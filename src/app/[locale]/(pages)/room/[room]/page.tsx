@@ -1,7 +1,7 @@
 'use client';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { WHITE } from '@/app/[locale]/(pages)/room/[room]/enums';
+import { AQUA_DARK, AQUA_LIGHT, ART, WHITE } from '@/app/[locale]/(pages)/room/[room]/enums';
 import { useTranslations } from 'next-intl';
 import Gallery from '@/app/components/ui/Gallery';
 import { useEffect, useState } from 'react';
@@ -11,13 +11,14 @@ import { ref } from 'firebase/storage';
 import { storage } from '@/app/firebase';
 import { PropagateLoader } from 'react-spinners';
 import { equipmentList } from '@/app/[locale]/(pages)/room/[room]/data';
+import NotFoundPage from '@/app/not-found';
 
 const Room = () => {
     const router = useRouter();
     const t = useTranslations();
     const { room } = useParams();
 
-    const [roomData, setRoomData] = useState<typeof WHITE | null>(null);
+    const [roomData, setRoomData] = useState<any>(null);
     const [equipmentImages, setEquipmentImages] = useState<string[] | []>([]);
 
     const randomNumber = Math.floor(Math.random() * 10);
@@ -37,14 +38,25 @@ const Room = () => {
     }, []);
 
     useEffect(() => {
-        if (room === 'white') {
-            setRoomData(WHITE);
-        } else {
-            router.push('/');
+        switch (room) {
+            case 'white':
+                setRoomData(WHITE);
+                break;
+            case 'art':
+                setRoomData(ART);
+                break;
+            case 'aqua_dark':
+                setRoomData(AQUA_DARK);
+                break;
+            case 'aqua_light':
+                setRoomData(AQUA_LIGHT);
+                break;
+            default:
+                return;
         }
     }, [room, router]);
 
-    if (!roomData) return null; // Пока нет данных, ничего не рендерим
+    if (!roomData) return <NotFoundPage />; // Пока нет данных, ничего не рендерим
 
     return (
         <div className={`pt-[80px] md:pt-0 px-4`}>

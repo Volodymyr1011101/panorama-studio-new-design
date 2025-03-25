@@ -16,7 +16,10 @@
     "art": "Sala Art",
     "white": "Sala White",
     "more": "Szczegóły",
-    "white_description": "W tej sali możesz fotografować zarówno przy sztucznym, jak i naturalnym światłem. //Sala jest wyposażona w klimatyzację. Zawsze utrzymujemy cykloramę w czystości, abyś nie musiał tracić czasu na retuszowanie zdjęć."
+    "white_description": "W tej sali możesz fotografować zarówno przy sztucznym, jak i naturalnym światłem. //Sala jest wyposażona w klimatyzację. Zawsze utrzymujemy cykloramę w czystości, abyś nie musiał tracić czasu na retuszowanie zdjęć.",
+    "art_description": "Ta sala jest doskonałym miejscem do komfortowych sesji fotograficznych zarówno dla pojedynczych osób, jak i dla rodzin.",
+    "aqua_light_description": "Jedyne aqua studio we Wrocławiu!\u200B\n\nŚwiatło odbijająć się od fal wody tworzy unikalne bajkowe obrazy. Tutaj możesz tworzyć niezwykłe zdjęcia dla swojego portfolio i nagrywać wysokiej jakości wideo.\n\nW tej sali możesz używać od 1 do 3 źródeł światła oraz kolorowych filtrów.\n\nW razie potrzeby udostępniamy suszarkę do włosów i czyste ręczniki bez dodatkowych opłat.",
+    "aqua_dark_description": "Jedyne aqua studio we Wrocławiu!\n\nW sali zawsze są dostępne trzy źródła światła, kolorowe filtry i głośnik muzyczny, który możesz podłączyć do swojego smartfona.\nWoda jest stałe podgrzewana, a temperatura bardzo komfortowa. Na życzenie dostępne są suszarka do włosów i czyste ręczniki, bez dodatkowych opłat. Możesz również wynająć maszynę do dymu."
   },
   "Rules": {
     "title": "Regulamin studia",
