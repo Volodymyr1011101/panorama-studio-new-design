@@ -1,4 +1,5 @@
-import { StorageReference, getDownloadURL, listAll } from "firebase/storage";
+import { StorageReference, getDownloadURL, listAll, ref } from 'firebase/storage';
+import { storage } from '@/app/firebase';
 
 export const getImagesFromDataBase = async (ref: StorageReference): Promise<string[]> => {
     try {
@@ -12,12 +13,13 @@ export const getImagesFromDataBase = async (ref: StorageReference): Promise<stri
 
         return urls;
     } catch (error) {
-        console.error("Ошибка при получении изображений:", error);
+        console.error('Ошибка при получении изображений:', error);
         return [];
     }
 };
+const listRef = ref(storage, 'image');
 
-export const getImages = async (ref:StorageReference) => {
-    const images = await getImagesFromDataBase(ref)
+export const getImages = async (ref: StorageReference) => {
+    const images = await getImagesFromDataBase(ref);
     return images;
-}
+};
