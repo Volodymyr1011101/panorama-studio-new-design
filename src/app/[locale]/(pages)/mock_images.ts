@@ -30,14 +30,10 @@ export const images2 = [
     '/images_mock/9J9A0436.jpg',
     '/images_mock/9J9A0571.jpg',
     '/images_mock/9J9A0620.jpg',
-    '/images_mock/9J9A3669.jpg',
-    '/images_mock/9J9A3725.jpg',
-    '/images_mock/9J9A5416.jpg',
     '/images_mock/9J9A5760.jpg',
     '/images_mock/9J9A9174.jpg',
     '/images_mock/9J9A9457.jpg',
     '/images_mock/9J9A9621.jpg',
-    '/images_mock/A4110567.jpg',
     '/images_mock/ImageCanon_0578.jpg',
     '/images_mock/IMG_0010.jpg',
     '/images_mock/IMG_0548.jpg',
@@ -55,6 +51,5 @@ export const images2 = [
     '/images_mock/IMG_9308.jpg',
     '/images_mock/IMG_9485.jpg',
     '/images_mock/IMG_9854.jpg',
-    '/images_mock/R_0092.jpg',
     '/images_mock/IMG_9244.jpg'
 ];

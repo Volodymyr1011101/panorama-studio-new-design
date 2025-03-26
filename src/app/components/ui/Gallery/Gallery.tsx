@@ -1,71 +1,65 @@
 'use client';
-import { useState } from 'react';
-import { RowsPhotoAlbum } from 'react-photo-album';
-import 'react-photo-album/rows.css';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
-import styles from './Gallery.module.scss';
-import { PropagateLoader } from 'react-spinners';
-import { images } from '@/app/[locale]/(pages)/mock_images';
-import Image from 'next/image';
+import LightGallery from 'lightgallery/react';
+//@ts-ignore
+// import fjGallery from 'flickr-justified-gallery';
+// import styles
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-share.css';
+import 'lightgallery/css/lg-fullscreen.css';
+import 'lightgallery/css/lightgallery-core.css';
+import 'lightgallery/css/lightgallery-bundle.css';
+// import plugins if you need
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
+import lgFullscreen from 'lightgallery/plugins/fullscreen';
+import lgShare from 'lightgallery/plugins/share';
+import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
-const Gallery2 = ({ galleryImages }: { galleryImages: string[] }) => {
-    const [index, setIndex] = useState(-1);
-    const photos = galleryImages
-        ?.map((src: string) => {
-            const matcher = src.match(/\.(\d+)x(\d+)\.(jpg|JPG|jpeg|png|webp)/);
-
-            // Check if the match was successful
-            if (!matcher) {
-                console.warn(`No match for image URL: ${src}`);
-                return null; // or return a default object or skip the image
-            }
-
-            const width = Number.parseInt(matcher[1], 10);
-            const height = Number.parseInt(matcher[2], 10);
-
-            return {
-                src: src,
-                width,
-                height
-            };
-        })
-        .filter(photo => photo !== null); // Filter out any null values from the result
-
+export default function Gallery({ images }: { images: string[] }) {
+    const onInit = () => {
+        console.log('lightGallery has been initialized');
+    };
+    const [showImagesCount, setShowImagesCount] = useState<number>(12);
+    const [fjGallery, setFjGallery] = useState<any>(null);
+    useEffect(() => {
+        //@ts-ignore
+        import('flickr-justified-gallery')
+            .then(mod => {
+                setFjGallery(() => mod.default); // Загружаем fjGallery только в браузере
+                const galleryElements = document.querySelectorAll('.gallery');
+                if (galleryElements.length) {
+                    mod.default(galleryElements, {
+                        itemSelector: '.gallery__item',
+                        rowHeight: 180,
+                        lastRow: 'start',
+                        gutter: 2,
+                        rowHeightTolerance: 0.1,
+                        calculateItemsHeight: false
+                    });
+                }
+            })
+            .catch(err => console.error('Ошибка импорта fjGallery:', err));
+    }, [showImagesCount]);
     return (
-        <div className={styles.wrapper}>
-            {galleryImages?.length ? (
-                <>
-                    {/*<RowsPhotoAlbum photos={photos} targetRowHeight={150} spacing={3} onClick={({ index: current }) => setIndex(current)} />*/}
-                    <div className={`flex flex-wrap gap-[3px] grid-container`}>
-                        {images.map((src, i) => (
-                            <Image className={`grow grid-item`} src={src} key={i} width={200} height={30} alt={'images'} onClick={() => setIndex(i)} />
-                        ))}
-                        <style jsx>{`
-                            .grid-container {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                                gap: 3px;
-                                grid-auto-flow: dense; /* Позволяет фото заполнять пустоты */
-                            }
-
-                            .grid-item {
-                                width: 100%;
-                                height: auto;
-                                object-fit: cover;
-                                border-radius: 10px;
-                            }
-                        `}</style>
-                    </div>
-                    <Lightbox index={index} slides={photos} open={index >= 0} close={() => setIndex(-1)} />
-                </>
-            ) : (
-                <div className={`flex items-center justify-center`}>
-                    <PropagateLoader />
-                </div>
+        <div key={showImagesCount}>
+            <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare]} elementClassNames={'gallery mb-4'}>
+                {images?.slice(0, showImagesCount).map((src, i) => (
+                    <a href={src} key={i} className="gallery__item">
+                        <img alt="img1" src={src} className="rounded-xl" />
+                    </a>
+                ))}
+            </LightGallery>
+            {showImagesCount <= images.length && (
+                <button
+                    onClick={() => setShowImagesCount((prev: number): number => prev + 9)}
+                    className={`m-auto block text-black py-2 px-6 rounded-[12px] bg-[#60606042] backdrop-blur-[5px] hover:scale-[1.05] transition`}
+                >
+                    Show More
+                </button>
             )}
         </div>
     );
-};
-
-export default Gallery2;
+}
