@@ -20,7 +20,7 @@ const Header: NextComponentType<NextPageContext, {}, Props> = () => {
     return (
         <header className={`${styles.header} ${isShowMenu ? styles.showMenu : ''} `}>
             {!isShowMenu ? (
-                <div className={`absolute top-[380px] right-0 p-4 items-center justify-between w-full ${styles.headerTop}`}>
+                <div className={`absolute top-[420px] right-0 p-4 items-center justify-between w-full ${styles.headerTop}`}>
                     <Link href={'/'} className={styles.logo}>
                         <Image {...imageConfig.logo} />
                     </Link>
@@ -35,7 +35,7 @@ const Header: NextComponentType<NextPageContext, {}, Props> = () => {
             <Link href={'/'} className={styles.logo}>
                 <Image {...imageConfig.logo} />
             </Link>
-            <Navigation closeMenu={() => setIsShowMenu(false)} />
+            <Navigation closeMenu={setIsShowMenu} />
             <LanguageSwitcher />
         </header>
     );

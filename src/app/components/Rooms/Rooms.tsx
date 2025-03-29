@@ -6,6 +6,7 @@ import ButtonComponent from '../ui/Button';
 import Room from '../ui/Room/Room';
 import styles from './Rooms.module.scss';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 interface Props {}
 
 interface IRooms {
@@ -79,6 +80,11 @@ const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className={``}>
+                <Link href={`/reservation`} className={`px-8 py-4 text-white bg-[#5bc0f0] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition `}>
+                    {t(`reservation`)}
+                </Link>
             </div>
         </>
     );

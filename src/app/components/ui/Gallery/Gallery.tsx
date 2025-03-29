@@ -7,7 +7,7 @@ import fjGallery from 'flickr-justified-gallery';
 import Lightbox from 'yet-another-react-lightbox';
 import { images2 } from '@/app/[locale]/(pages)/mock_images';
 
-export default function Gallery({ images }: { images: string[] | null }) {
+export default function Gallery({ images, header }: { images: string[] | null; header?: string }) {
     const [index, setIndex] = useState(-1);
     const getImages = (images: string[] | null): { src: string }[] => {
         if (images === null) {
@@ -18,7 +18,7 @@ export default function Gallery({ images }: { images: string[] | null }) {
     const galleryImages = getImages(images);
 
     const t = useTranslations();
-    const [showImagesCount, setShowImagesCount] = useState<number>(12);
+    const [showImagesCount, setShowImagesCount] = useState<number>(18);
 
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
@@ -32,6 +32,7 @@ export default function Gallery({ images }: { images: string[] | null }) {
     }, [showImagesCount]);
     return (
         <div key={showImagesCount}>
+            {header && <h2 className={`text-[36px] text-center mb-8`}>{t(header)}</h2>}
             <div className="gallery mb-8">
                 {galleryImages?.slice(0, showImagesCount).map((image, i) => (
                     <button onClick={() => setIndex(i)} key={i} className="gallery__item">
@@ -40,12 +41,12 @@ export default function Gallery({ images }: { images: string[] | null }) {
                 ))}
             </div>
             <Lightbox index={index} slides={galleryImages} open={index >= 0} close={() => setIndex(-1)} />
-            {galleryImages?.length && showImagesCount <= galleryImages?.length && (
+            {galleryImages?.length && showImagesCount < galleryImages?.length && (
                 <button
-                    onClick={() => setShowImagesCount((prev: number): number => prev + 9)}
-                    className={`m-auto block text-black py-2 px-6 rounded-[12px] bg-[#60606042] backdrop-blur-[5px] hover:scale-[1.05] transition`}
+                    onClick={() => setShowImagesCount(galleryImages?.length)}
+                    className={`m-auto block text-white py-2 px-6 rounded-[12px] bg-[#5bc0f0] backdrop-blur-[5px] hover:scale-[1.05] transition`}
                 >
-                    Show More
+                    {t('show_more')}
                 </button>
             )}
         </div>

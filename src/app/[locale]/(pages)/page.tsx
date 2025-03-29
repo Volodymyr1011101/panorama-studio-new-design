@@ -14,7 +14,7 @@ export default async function HomePage() {
                 <Rooms />
             </section>
             <section className=" mb-8">
-                <Gallery images={images2} />
+                <Gallery images={images2} header={'gallery_header'} />
             </section>
             <section className={styles.maps}>
                 <iframe

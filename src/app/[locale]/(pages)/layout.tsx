@@ -8,7 +8,13 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import './globals.scss';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-const inter = Inter({ subsets: ['latin'] });
+import { EB_Garamond } from 'next/font/google';
+
+const ebGaramond = EB_Garamond({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700', '800'], // Укажи нужные веса
+    display: 'swap'
+});
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: { locale: 'en' | 'ua' } }) {
     // @ts-ignore
@@ -21,7 +27,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
 
     return (
         <html lang={locale}>
-            <body className={` ${inter.className}`}>
+            <body className={` ${ebGaramond.className}`}>
                 <NextIntlClientProvider messages={messages}>
                     <div className="max-w-[980px] m-auto overflow-hidden relative">
                         <Header />

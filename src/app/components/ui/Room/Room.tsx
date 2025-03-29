@@ -14,7 +14,7 @@ const Room: NextComponentType<NextPageContext, {}, Props> = ({ image, roomName, 
     const t = useTranslations('Rooms');
     return (
         <div className="h-full relative w-full">
-            <Link className={`${styles.title} hover:scale-[1.05] transition`} href={navigation}>
+            <Link className={`${styles.title} `} href={navigation}>
                 {roomName}
             </Link>
             <Image {...image} className=" object-cover w-full h-full rounded-[8px]" />

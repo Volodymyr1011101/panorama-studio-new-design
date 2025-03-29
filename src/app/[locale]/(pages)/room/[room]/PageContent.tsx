@@ -54,17 +54,24 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                 ) : (
                     <PropagateLoader />
                 )}
-                <h1 className={'text-center text-[30px]'}>{t(`Rooms.${roomSlug}`)}</h1>
+                <h1 className={'text-center text-[36px]'}>{t(`Rooms.${roomSlug}`)}</h1>
                 {t(`Rooms.${roomSlug}_description`)
                     .split('//')
                     .map(line => (
-                        <p key={line}>{line}</p>
+                        <p key={line} className={`text-[20px]`}>
+                            {line}
+                        </p>
                     ))}
                 <div className={`py-8`}>
-                    <Link href={`/reservation`} className={`px-8 py-4 text-white bg-[#454545] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition `}>
+                    <Link
+                        href={`/reservation`}
+                        className={`px-6 py-2 text-white bg-[#5bc0f0] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition text-[20px]`}
+                    >
                         {t(`Header.reservation`)}
                     </Link>
                 </div>
+                <p className={`mb-8 text-[18px]`}>{t('add_info_session')}</p>
+
                 <div className={`mb-8`}>
                     <Gallery images={galleryImages} />
                 </div>
@@ -86,15 +93,14 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                         </ul>
                     </div>
                 </div>
-                <p className={`mb-8`}>{t('add_info_session')}</p>
 
                 <div
                     className={`md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-2xl flex flex-col justify-between md:flex-row mb-8`}
                 >
-                    <div className={`flex flex-col items-center w-full md:w-[30%] justify-center`}>
-                        <Image src={'/images/images/backgrounds.webp'} width={284} height={269} alt={'equipment photo'} className={`rounded-2xl`} />
+                    <div className={`flex flex-col items-center w-full md:w-[35%] justify-center`}>
+                        <Image src={'/images/images/backgrounds.webp'} width={327} height={269} alt={'equipment photo'} className={`rounded-2xl`} />
                     </div>
-                    <div className={`w-full md:w-[66%] flex flex-col items-center `}>
+                    <div className={`w-full md:w-[60%] flex flex-col items-center `}>
                         <h2 className={`text-[30px] border-b-[1px] border-[black] mb-4`}>{t('backgrounds_title')}</h2>
                         <p>{t('backgrounds_description')}</p>
                     </div>

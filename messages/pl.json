@@ -3,7 +3,13 @@
     "main": "Główna",
     "reservation": "Rezerwacja online",
     "rules": "Regulamin",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "rooms": "Nasze sale",
+    "aqua_light": "Aqua Light",
+    "aqua_dark": "Aqua dark",
+    "make_up": "Sala Make-up",
+    "art": "Sala Art",
+    "white": "Sala White"
   },
   "Hero": {
     "subtitle": "Studio w sercu Wrocławia",
@@ -17,6 +23,8 @@
     "art": "Sala Art",
     "white": "Sala White",
     "more": "Szczegóły",
+    "reservation": "Rezerwacja online",
+
     "white_description": "W tej sali możesz fotografować zarówno przy sztucznym, jak i naturalnym światłem. //Sala jest wyposażona w klimatyzację. Zawsze utrzymujemy cykloramę w czystości, abyś nie musiał tracić czasu na retuszowanie zdjęć.",
     "art_description": "Ta sala jest doskonałym miejscem do komfortowych sesji fotograficznych zarówno dla pojedynczych osób, jak i dla rodzin.",
     "aqua_light_description": "Jedyne aqua studio we Wrocławiu!\u200B\n\nŚwiatło odbijająć się od fal wody tworzy unikalne bajkowe obrazy. Tutaj możesz tworzyć niezwykłe zdjęcia dla swojego portfolio i nagrywać wysokiej jakości wideo.\n\nW tej sali możesz używać od 1 do 3 źródeł światła oraz kolorowych filtrów.\n\nW razie potrzeby udostępniamy suszarkę do włosów i czyste ręczniki bez dodatkowych opłat.",
@@ -64,6 +72,9 @@
   "equipment": "SPRZĘT",
   "add_info_session": "* Rzeczywisty czas sesji przy rezerwacji 1 godziny ~  55 minut, a dodatkowe 5 minut potrzebujemy na posprzątanie sali, aby kolejni klienci mogli rozpocząć swoją sesję punktualnie.",
   "backgrounds_title": "Papierowe tła",
-  "backgrounds_description": "Tła są wliczonę w cenę wynajmu. Już są dostępne beżowy, czarny, szary, brązowy,\nniebieski, różowy, jasnozielony, czerwony, zielony. \nJeśli potrzebujesz color, którego nie mamy w dostępności,\nnapisz do nas, zamówimy go dla ciebe."
+  "backgrounds_description": "Tła są wliczonę w cenę wynajmu. Już są dostępne beżowy, czarny, szary, brązowy,\nniebieski, różowy, jasnozielony, czerwony, zielony. \nJeśli potrzebujesz color, którego nie mamy w dostępności,\nnapisz do nas, zamówimy go dla ciebe.",
+  "gallery_header": "Prace naszych klientów",
+  "show_more": "Więcej"
+
 
 }

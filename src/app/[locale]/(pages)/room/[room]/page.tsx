@@ -11,8 +11,6 @@ const Room = async ({ params }: any) => {
         aqua_dark: null,
         make_up: null
     };
-    console.log(roomSlug);
-    // @ts-ignore
     return (
         <>
             {roomSlug !== 'make_up' ? (

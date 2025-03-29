@@ -1,6 +1,7 @@
 export interface ILinks {
     name: string;
     link: string;
+    children?: ILinks[];
 }
 export interface IIMage {
     src: string;
