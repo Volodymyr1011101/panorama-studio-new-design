@@ -55,7 +55,7 @@ const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     return (
         <>
             <div className={styles.title}>
-                <h2>rooms</h2>
+                <h2>{t('rooms')}</h2>
             </div>
             <div className={styles.rooms}>
                 {rooms.map(room => (

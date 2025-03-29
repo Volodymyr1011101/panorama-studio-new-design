@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react';
 
 interface Props {
     roomSlug: string;
-    galleryImages: string[];
-    equipmentImages: string[];
+    galleryImages: string[] | null;
+    equipmentImages: string[] | null;
 }
 const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
     const t = useTranslations();
@@ -22,12 +22,16 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
         switch (roomSlug) {
             case 'white':
                 setEnumObject(WHITE);
+                break;
             case 'art':
                 setEnumObject(ART);
+                break;
             case 'aqua_dark':
                 setEnumObject(AQUA_DARK);
+                break;
             case 'aqua_light':
                 setEnumObject(AQUA_LIGHT);
+                break;
             default:
                 setEnumObject(DEFAULT);
         }
@@ -56,14 +60,17 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                     .map(line => (
                         <p key={line}>{line}</p>
                     ))}
-                <div className={`mb-8 pt-8`}>
+                <div className={`py-8`}>
+                    <Link href={`/reservation`} className={`px-8 py-4 text-white bg-[#454545] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition `}>
+                        {t(`Header.reservation`)}
+                    </Link>
+                </div>
+                <div className={`mb-8`}>
                     <Gallery images={galleryImages} />
                 </div>
-                <Link href={`/reservation`} className={`px-8 py-4 text-white bg-[#454545] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition mb-8`}>
-                    {t(`Header.reservation`)}
-                </Link>
+
                 <div className={`md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-2xl flex flex-col md:flex-row mb-8`}>
-                    <div className={`flex flex-col items-center w-full md:w-[30%] justify-center`}>
+                    <div className={`flex flex-col items-center w-full md:w-[35%] justify-center`}>
                         {equipmentImages?.length ? (
                             <Image src={equipmentImages[random]} width={327} height={405} alt={'equipment photo'} className={`rounded-2xl`} />
                         ) : (

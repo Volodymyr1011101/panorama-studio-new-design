@@ -43,7 +43,7 @@ export default function Gallery({ images }: { images: string[] }) {
             .catch(err => console.error('Ошибка импорта fjGallery:', err));
     }, []);
     return (
-        <div className="App">
+        <div>
             <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare]} elementClassNames={'gallery'}>
                 {images?.map((src, i) => (
                     <a href={src} key={i} className="gallery__item">

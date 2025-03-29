@@ -53,3 +53,25 @@ export const images2 = [
     '/images_mock/IMG_9854.jpg',
     '/images_mock/IMG_9244.jpg'
 ];
+
+export const artImages = [
+    '/art/IMG_0910.jpg',
+    '/art/IMG_1834.jpg',
+    '/art/IMG_2747.jpg',
+    '/art/IMG_6121.jpg',
+    '/art/IMG_6190.jpg',
+    '/art/IMG_7938.jpg',
+    '/art/IMG_7939.jpg',
+    '/art/IMG_7945 копия.jpg',
+    '/art/IMG_7946.jpg',
+    '/art/IMG_7940.jpg',
+    '/art/2M6A9877.jpg',
+    '/art/4R6A8250.jpg',
+    '/art/4R6A8373.jpg',
+    '/art/4R6A9617-Улучшено-Ум. шума.jpg',
+    '/art/4R6A9632-Улучшено-Ум. шума.jpg',
+    '/art/4R6A9667-Улучшено-Ум. шума.jpg',
+    '/art/4R6A9721-Улучшено-Ум. шума.jpg',
+    '/art/4R6A9729-Улучшено-Ум. шума.jpg',
+    '/art/9J9A8204.jpg'
+];

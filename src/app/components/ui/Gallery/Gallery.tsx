@@ -1,58 +1,46 @@
 'use client';
-import LightGallery from 'lightgallery/react';
-//@ts-ignore
-// import fjGallery from 'flickr-justified-gallery';
-// import styles
-import 'lightgallery/css/lightgallery.css';
-import 'lightgallery/css/lg-zoom.css';
-import 'lightgallery/css/lg-thumbnail.css';
-import 'lightgallery/css/lg-share.css';
-import 'lightgallery/css/lg-fullscreen.css';
-import 'lightgallery/css/lightgallery-core.css';
-import 'lightgallery/css/lightgallery-bundle.css';
-// import plugins if you need
-import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgFullscreen from 'lightgallery/plugins/fullscreen';
-import lgShare from 'lightgallery/plugins/share';
+import 'yet-another-react-lightbox/styles.css';
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
+//@ts-ignore
+import fjGallery from 'flickr-justified-gallery';
+import Lightbox from 'yet-another-react-lightbox';
+import { images2 } from '@/app/[locale]/(pages)/mock_images';
 
-export default function Gallery({ images }: { images: string[] }) {
-    const onInit = () => {
-        console.log('lightGallery has been initialized');
+export default function Gallery({ images }: { images: string[] | null }) {
+    const [index, setIndex] = useState(-1);
+    const getImages = (images: string[] | null): { src: string }[] => {
+        if (images === null) {
+            return images2.map(item => ({ src: item }));
+        }
+        return images.map(item => ({ src: item }));
     };
+    const galleryImages = getImages(images);
+
+    const t = useTranslations();
     const [showImagesCount, setShowImagesCount] = useState<number>(12);
-    const [fjGallery, setFjGallery] = useState<any>(null);
+
     useEffect(() => {
-        //@ts-ignore
-        import('flickr-justified-gallery')
-            .then(mod => {
-                setFjGallery(() => mod.default); // Загружаем fjGallery только в браузере
-                const galleryElements = document.querySelectorAll('.gallery');
-                if (galleryElements.length) {
-                    mod.default(galleryElements, {
-                        itemSelector: '.gallery__item',
-                        rowHeight: 180,
-                        lastRow: 'start',
-                        gutter: 2,
-                        rowHeightTolerance: 0.1,
-                        calculateItemsHeight: false
-                    });
-                }
-            })
-            .catch(err => console.error('Ошибка импорта fjGallery:', err));
+        fjGallery(document.querySelectorAll('.gallery'), {
+            itemSelector: '.gallery__item',
+            rowHeight: 180,
+            lastRow: 'start',
+            gutter: 2,
+            rowHeightTolerance: 0.1,
+            calculateItemsHeight: false
+        });
     }, [showImagesCount]);
     return (
         <div key={showImagesCount}>
-            <LightGallery onInit={onInit} speed={500} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare]} elementClassNames={'gallery mb-4'}>
-                {images?.slice(0, showImagesCount).map((src, i) => (
-                    <a href={src} key={i} className="gallery__item">
-                        <img alt="img1" src={src} className="rounded-xl" />
-                    </a>
+            <div className="gallery mb-8">
+                {galleryImages?.slice(0, showImagesCount).map((image, i) => (
+                    <button onClick={() => setIndex(i)} key={i} className="gallery__item">
+                        <img alt={'Our Gallery'} src={image.src} className="rounded-xl" />
+                    </button>
                 ))}
-            </LightGallery>
-            {showImagesCount <= images.length && (
+            </div>
+            <Lightbox index={index} slides={galleryImages} open={index >= 0} close={() => setIndex(-1)} />
+            {galleryImages?.length && showImagesCount <= galleryImages?.length && (
                 <button
                     onClick={() => setShowImagesCount((prev: number): number => prev + 9)}
                     className={`m-auto block text-black py-2 px-6 rounded-[12px] bg-[#60606042] backdrop-blur-[5px] hover:scale-[1.05] transition`}

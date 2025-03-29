@@ -4,7 +4,6 @@ import Image from 'next/image';
 import styles from './Room.module.scss';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-
 interface Props {
     image: IIMage;
     roomName: string;
