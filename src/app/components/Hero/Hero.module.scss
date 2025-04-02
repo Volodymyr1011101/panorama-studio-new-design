@@ -3,4 +3,11 @@
     background-size: cover;
     background-position: center;
     border-radius: 16px;
+    max-height: 320px;
+}
+
+.wrapper {
+    h1 {
+        font-size: clamp(32px, 4vw, 52px);
+    }
 }

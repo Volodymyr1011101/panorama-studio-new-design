@@ -6,7 +6,7 @@ import Gallery from '@/app/components/ui/Gallery/Gallery';
 
 export default async function HomePage() {
     return (
-        <div className={`px-4 pt-[102px] md:p-4`}>
+        <div className={`px-4 pt-[102px] md:p-4 h-`}>
             <section className={styles.heroSection}>
                 <HeroComponent />
             </section>
