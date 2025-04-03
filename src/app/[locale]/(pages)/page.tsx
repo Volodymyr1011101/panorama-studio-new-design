@@ -3,8 +3,11 @@ import Rooms from '@/app/components/Rooms/Rooms';
 import styles from './page.module.scss';
 import { images2 } from '@/app/[locale]/(pages)/mock_images';
 import Gallery from '@/app/components/ui/Gallery/Gallery';
+import { getInfo } from '@/helpers';
+import ImageSlider from '@/app/components/ui/Slider/Slider';
 
 export default async function HomePage() {
+    const data = await getInfo();
     return (
         <div className={`px-4 pt-[102px] md:p-4 h-`}>
             <section className={styles.heroSection}>
@@ -12,6 +15,9 @@ export default async function HomePage() {
             </section>
             <section className={styles.roomsSection}>
                 <Rooms />
+            </section>
+            <section>
+                <ImageSlider reviews={data.reviews} url={data.url} />
             </section>
             <section className=" mb-8">
                 <Gallery images={images2} header={'gallery_header'} />

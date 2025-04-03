@@ -36,9 +36,16 @@ export default function Dropdown({ items, closeMenu }: { items: ILinks[]; closeM
                 <Image src={'/images/svg/arrow-dropdown.svg'} alt={'arrow-dropdown'} width={10} height={10} className={`${isOpen ? 'rotate-[180deg]' : ''}`} />
             </button>
             {isOpen && (
-                <div className="absolute left-0 mt-8 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-[1000]">
+                <div
+                    className={`text-center md:text-left md:absolute left-0 md:mt-8 w-48 md:bg-white md:border md:border-gray-200 rounded-lg md:shadow-lg z-[1000] backdrop-blur-lg`}
+                >
                     {items.map((item, index) => (
-                        <Link href={item.link} className="block px-4 py-2 text-gray-800 hover:bg-gray-100" onClick={handleClick} key={index + item.link}>
+                        <Link
+                            href={item.link}
+                            className={`block px-4 py-2 min-h-0 text-gray-800 hover:bg-gray-100`}
+                            onClick={handleClick}
+                            key={index + item.link}
+                        >
                             {item.name}
                         </Link>
                     ))}

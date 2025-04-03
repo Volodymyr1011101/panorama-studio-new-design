@@ -1,0 +1,31 @@
+.reviews-container {
+  width: 100%;
+  height: 100px; /* Высота контейнера для отзыва */
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-wrapper {
+  display: flex;
+  animation: scroll 15s linear infinite;
+}
+
+.review {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
