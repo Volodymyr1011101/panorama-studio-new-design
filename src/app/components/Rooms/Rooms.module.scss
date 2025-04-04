@@ -2,7 +2,7 @@
     @apply text-4xl text-black text-center;
 }
 .rooms {
-    @apply flex gap-4 justify-center;
+    @apply flex gap-[2px] justify-center;
     @media screen and (max-width: 600px) {
         @apply flex-wrap;
     }
@@ -46,10 +46,6 @@
     @apply absolute w-full h-full flex flex-col items-center justify-center rounded-[8px] gap-12;
     backface-visibility: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.front {
-    background-color: #000;
 }
 
 .back {

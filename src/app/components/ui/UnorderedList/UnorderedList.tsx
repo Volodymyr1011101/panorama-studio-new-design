@@ -21,7 +21,7 @@ const UnorderedList: NextComponentType<NextPageContext, {}, Props> = ({ items, o
                     <li className={outStylesItem} key={link.name + index}>
                         {
                             //@ts-ignore
-                            <Link href={link.link} onClick={() => closeMenu(false)}>
+                            <Link href={link.link} onClick={() => closeMenu(false)} className={`text-[20px] tracking-[1px]`}>
                                 {link.name}
                             </Link>
                         }

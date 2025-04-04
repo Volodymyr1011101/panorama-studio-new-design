@@ -12,13 +12,13 @@ export const imageConfig = {
         alt: 'bg'
     },
     white: {
-        src: '/images/images/white.webp',
+        src: '/images/images/White27.jpg',
         width: 300,
         height: 400,
         alt: 'white-room'
     },
     art: {
-        src: '/images/images/art.webp',
+        src: '/images/images/art20.JPG',
         width: 300,
         height: 400,
         alt: 'white-room'

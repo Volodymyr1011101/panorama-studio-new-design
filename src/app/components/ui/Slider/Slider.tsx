@@ -22,7 +22,10 @@ const ImageSlider = ({ reviews, url }: Props) => {
     const [swiper, setSwiper] = useState();
     const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
     const [currentSlide, setCurrentSlide] = useState(0);
-
+    const [slidePosition, setSlidePosition] = useState({
+        isBeginning: true,
+        isEnd: false
+    });
     useEffect(() => {
         textRefs.current.forEach(p => {
             if (p) truncateText(p, 3);
@@ -31,8 +34,8 @@ const ImageSlider = ({ reviews, url }: Props) => {
 
     // @ts-ignore
     return (
-        <div className="relative px-[40px]">
-            {currentSlide !== 0 ? (
+        <div className="relative px-[40px] mb-4">
+            {!slidePosition.isBeginning ? (
                 <button
                     className={`absolute left-0 top-[50%] translate-y-[-50%]`}
                     onClick={() => {
@@ -47,7 +50,7 @@ const ImageSlider = ({ reviews, url }: Props) => {
             ) : null}
             <Swiper
                 modules={[Navigation, A11y]}
-                spaceBetween={50}
+                spaceBetween={16}
                 slidesPerView={1}
                 breakpoints={{
                     600: {
@@ -59,11 +62,15 @@ const ImageSlider = ({ reviews, url }: Props) => {
                 }}
                 //@ts-ignore
                 onSwiper={swiper => setSwiper(swiper)}
-                onSlideChange={slide => setCurrentSlide(slide.activeIndex)}
+                onSlideChange={slide => {
+                    setSlidePosition({ isBeginning: slide.isBeginning, isEnd: slide.isEnd });
+
+                    setCurrentSlide(slide.activeIndex);
+                }}
             >
                 {reviews?.map((review, index) => (
                     <SwiperSlide key={review.author_name + index}>
-                        <div className={`flex flex-col gap-4 bg-[#EFEFEF] p-3 relative rounded-2xl min-h-[184px]`}>
+                        <div className={`flex flex-col gap-4 bg-[#EFEFEF] p-3 relative rounded-[8px] min-h-[208px]`}>
                             <div className={`flex items-center justify-between text-[18px]`}>
                                 <div className={`flex items-center gap-2`}>
                                     <Image src={review.profile_photo_url} alt={'reviewer photo'} width={60} height={60} />
@@ -74,7 +81,7 @@ const ImageSlider = ({ reviews, url }: Props) => {
                                     </div>
                                 </div>
                                 <div className={`absolute right-[7px] top-[7px] `}>
-                                    <a href={url}>
+                                    <a href={url} target={`_blank`}>
                                         <Image src={'/icons/google.svg'} alt={'google'} width={15} height={15} />
                                     </a>
                                 </div>
@@ -93,7 +100,7 @@ const ImageSlider = ({ reviews, url }: Props) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {currentSlide !== reviews.length - 3 ? (
+            {!slidePosition.isEnd ? (
                 <button
                     className={`absolute right-0 top-[50%] translate-y-[-50%]`}
                     onClick={() => {

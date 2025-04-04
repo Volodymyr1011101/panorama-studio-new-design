@@ -1,5 +1,5 @@
 import PageContent from '@/app/[locale]/(pages)/room/[room]/PageContent';
-import { artImages, images, images2 } from '@/app/[locale]/(pages)/mock_images';
+import { aquaDark, aquaLight, artImages, images, images2 } from '@/app/[locale]/(pages)/mock_images';
 import MakeUpContent from '@/app/[locale]/(pages)/room/[room]/MakeUp';
 
 const Room = async ({ params }: any) => {
@@ -7,14 +7,14 @@ const Room = async ({ params }: any) => {
     const galleryImages = {
         art: artImages,
         white: images2,
-        aqua_light: null,
-        aqua_dark: null,
+        aqua_light: aquaLight,
+        aqua_dark: aquaDark,
         make_up: null
     };
     return (
         <>
             {roomSlug !== 'make_up' ? (
-                <PageContent roomSlug={roomSlug} equipmentImages={images2} galleryImages={galleryImages[roomSlug]} />
+                <PageContent roomSlug={roomSlug} equipmentImages={galleryImages[roomSlug]} galleryImages={galleryImages[roomSlug]} />
             ) : (
                 <MakeUpContent slug={roomSlug} />
             )}

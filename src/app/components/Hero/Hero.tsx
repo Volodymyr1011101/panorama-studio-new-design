@@ -10,16 +10,16 @@ const Hero: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     const t = useTranslations('Hero');
     return (
         <>
-            <div className={styles.heroText} ref={container}>
+            <div className={`${styles.heroText} h-[220px] md:h-[initial]`} ref={container}>
                 {/* <Image {...imageConfig.backgroundMain} className={styles.mainBg} /> */}
                 <div className={`${styles.wrapper}`}>
                     <h1 className="text-[#5BC0F0]  flex justify-center pt-12 pl-4 sm:pl-0">PANORAMA STUDIO</h1>
                 </div>
-                <div className="flex align-center justify-end pr-[10%]">
-                    <p className="text-[white] text-[24px] italic text-6 pl-4">{t('subtitle')}</p>
+                <div className="hidden md:flex align-center justify-end pr-[10%]">
+                    <p className="text-[white] text-[24px] italic text-6 pl-4 leading-[0.2px]">{t('subtitle')}</p>
                 </div>
-                <div className="flex align-center justify-start pt-12 text-white text-4 max-w-[90%] sm:max-w-[60%] lg:max-w-[30%]  pl-4 pb-[40px] lg:pb-[80px] lg:pt-[40px]">
-                    <p>{t('description')}</p>
+                <div className="hidden md:block flex align-center justify-start pt-12 text-white text-4 max-w-[90%] sm:max-w-[60%] lg:max-w-[40%]  pl-4 pb-[40px] lg:pb-[80px] lg:pt-[40px]">
+                    <p className={`text-[18px] tracking-[1px]`}>{t('description')}</p>
                 </div>
             </div>
         </>

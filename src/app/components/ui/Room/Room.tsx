@@ -20,7 +20,7 @@ const Room: NextComponentType<NextPageContext, {}, Props> = ({ image, roomName, 
             <Image {...image} className=" object-cover w-full h-full rounded-[8px]" />
             <Link
                 href={navigation}
-                className={`absolute bottom-4 text-center w-[90%] m-auto left-[5%] text-white py-2 rounded-[12px] bg-[#ffffff42] backdrop-blur-[5px] hover:underline`}
+                className={`absolute bottom-4 text-center w-[70%] m-auto left-[15%] text-white py-1 rounded-[12px] bg-[#ffffff42] backdrop-blur-[5px] hover:underline text-[20px] tracking-[1px]`}
             >
                 {t('more')}
             </Link>

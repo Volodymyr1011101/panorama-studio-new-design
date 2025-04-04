@@ -74,7 +74,9 @@
   "backgrounds_title": "Papierowe tła",
   "backgrounds_description": "Tła są wliczonę w cenę wynajmu. Już są dostępne beżowy, czarny, szary, brązowy,\nniebieski, różowy, jasnozielony, czerwony, zielony. \nJeśli potrzebujesz color, którego nie mamy w dostępności,\nnapisz do nas, zamówimy go dla ciebe.",
   "gallery_header": "Prace naszych klientów",
-  "show_more": "Więcej"
-
+  "show_more": "Więcej",
+  "Contact": {
+    "title": "Kontakt"
+  }
 
 }

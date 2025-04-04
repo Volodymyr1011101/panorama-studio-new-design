@@ -82,7 +82,10 @@ const Rooms: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
                 ))}
             </div>
             <div className={``}>
-                <Link href={`/reservation`} className={`px-8 py-4 text-white bg-[#5bc0f0] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition `}>
+                <Link
+                    href={`/reservation`}
+                    className={`px-4 py-2 text-white bg-[#5bc0f0] w-fit rounded-2xl flex mx-auto hover:scale-[1.05] transition text-[25px] tracking-[1px]`}
+                >
                     {t(`reservation`)}
                 </Link>
             </div>

@@ -1,5 +1,5 @@
 .header {
-    @apply relative py-2 px-4 flex items-center justify-between bg-[#ffffff00] max-w-[1920px] w-full z-20;
+    @apply relative py-2 px-4 flex items-center justify-between bg-[#ffffff00] max-w-[1920px] w-full z-20 text-[18px];
     backdrop-filter: blur(8px);
 
     @media screen and (max-width: 900px) {

@@ -85,6 +85,6 @@ export const getInfo = async () => {
         rating: mainInfo.result.rating,
         url: mainInfo.result.url,
         total_votes: mainInfo.result.user_ratings_total,
-        reviews: collectAllReviews(mainInfo.result.reviews, plReviews.result.reviews, enReviews.result.reviews)
+        reviews: collectAllReviews(plReviews.result.reviews, mainInfo.result.reviews, enReviews.result.reviews)
     };
 };

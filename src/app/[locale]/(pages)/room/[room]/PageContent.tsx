@@ -95,7 +95,7 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                 </div>
 
                 <div
-                    className={`md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-2xl flex flex-col justify-between md:flex-row mb-8`}
+                    className={`md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-2xl flex flex-col justify-between md:flex-row mb-8 items-center`}
                 >
                     <div className={`flex flex-col items-center w-full md:w-[35%] justify-center`}>
                         <Image src={'/images/images/backgrounds.webp'} width={327} height={269} alt={'equipment photo'} className={`rounded-2xl`} />

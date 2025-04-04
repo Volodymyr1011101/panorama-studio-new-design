@@ -31,13 +31,13 @@ export default function Dropdown({ items, closeMenu }: { items: ILinks[]; closeM
 
     return (
         <li className={`relative m-auto ${styles.list}`} ref={dropdownRef}>
-            <button onClick={() => setIsOpen(!isOpen)} className=" text-black flex items-center gap-1">
+            <button onClick={() => setIsOpen(!isOpen)} className=" text-black flex items-center gap-1 text-[20px] tracking-[1px]">
                 {t('rooms')}
                 <Image src={'/images/svg/arrow-dropdown.svg'} alt={'arrow-dropdown'} width={10} height={10} className={`${isOpen ? 'rotate-[180deg]' : ''}`} />
             </button>
             {isOpen && (
                 <div
-                    className={`text-center md:text-left md:absolute left-0 md:mt-8 w-48 md:bg-white md:border md:border-gray-200 rounded-lg md:shadow-lg z-[1000] backdrop-blur-lg`}
+                    className={`text-center md:text-left md:absolute left-0 md:mt-14 w-48 md:bg-white md:border md:border-gray-200 rounded-lg md:shadow-lg z-[1000] backdrop-blur-lg`}
                 >
                     {items.map((item, index) => (
                         <Link

@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import fjGallery from 'flickr-justified-gallery';
 import Lightbox from 'yet-another-react-lightbox';
 import { images2 } from '@/app/[locale]/(pages)/mock_images';
+import Image from 'next/image';
 
 export default function Gallery({ images, header }: { images: string[] | null; header?: string }) {
     const [index, setIndex] = useState(-1);
@@ -36,7 +37,7 @@ export default function Gallery({ images, header }: { images: string[] | null; h
             <div className="gallery mb-8">
                 {galleryImages?.slice(0, showImagesCount).map((image, i) => (
                     <button onClick={() => setIndex(i)} key={i} className="gallery__item">
-                        <img alt={'Our Gallery'} src={image.src} className="rounded-xl" />
+                        <Image src={image.src} alt={'Our Gallery'} width={500} height={500} className={`rounded-[8px]`} />
                     </button>
                 ))}
             </div>
@@ -44,7 +45,7 @@ export default function Gallery({ images, header }: { images: string[] | null; h
             {galleryImages?.length && showImagesCount < galleryImages?.length && (
                 <button
                     onClick={() => setShowImagesCount(galleryImages?.length)}
-                    className={`m-auto block text-white py-2 px-6 rounded-[12px] bg-[#5bc0f0] backdrop-blur-[5px] hover:scale-[1.05] transition`}
+                    className={`m-auto block text-white py-2 px-6 rounded-[12px] bg-[#5bc0f0] backdrop-blur-[5px] hover:scale-[1.05] transition text-[20px] tracking-[1px]`}
                 >
                     {t('show_more')}
                 </button>
