@@ -9,14 +9,13 @@ const Page: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     const rules = new Array(6).fill(1);
     const renderTextWithLineBreaks = (text: string) => {
         return text.split('\n').map((line, index) => (
-            <span key={index}>
+            <span key={index} className={`block`}>
                 {line}
-                <br />
             </span>
         ));
     };
     return (
-        <div className={`pt-[90px] md:pt-0 px-4`}>
+        <div className={`pt-[90px] md:pt-0 px-4 tracking-[1px] text-[20px]`}>
             <h1 className={`text-center text-[34px] font-[500]`}>{t('title')}</h1>
             <ul className={`text-center`}>
                 {rules.map((_, index) => (

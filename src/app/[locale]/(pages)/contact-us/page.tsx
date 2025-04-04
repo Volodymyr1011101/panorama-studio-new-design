@@ -14,7 +14,7 @@ const Page = () => {
                 <h1 className={`text-[40px]`}>{t('title')}</h1>
                 <p>Rynek 2 lok 6, Wrocław, Polska</p>
                 <a href="mailto:panorama.wroclaw1@gmail.com">panorama.wroclaw1@gmail.com</a>
-                <a href={'tel:+48884702184'}>+48884702184</a>
+                <a href={'tel:+48884702184'}>+48-884-702-184</a>
             </div>
             <div>
                 <iframe
