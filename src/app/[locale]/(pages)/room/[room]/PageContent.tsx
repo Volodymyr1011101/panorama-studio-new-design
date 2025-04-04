@@ -95,7 +95,7 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                             <PropagateLoader />
                         )}
                     </div>
-                    <div className={`m-auto w-[66%] flex flex-col items-center leading-[24px] pt-8 md:pt-0`}>
+                    <div className={`m-auto md:w-[66%] flex flex-col items-center leading-[24px] pt-8 md:pt-0`}>
                         <h2 className={`text-[30px] border-b-[1px] border-[black] mb-4`}>{t('equipment')}</h2>
                         <ul>
                             {
@@ -109,22 +109,22 @@ const PageContent = ({ roomSlug, galleryImages, equipmentImages }: Props) => {
                 </div>
 
                 <div
-                    className={`h-full md:h-[200px] md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-[19px] flex flex-col justify-between md:flex-row mb-8 items-center overflow-hidden `}
+                    className={`h-full  md:border-t-[1px] border-b-[0px] md:border-b-[1px] border-[black] rounded-l-[19px] flex flex-col justify-between md:flex-row mb-8 items-center overflow-hidden `}
                 >
                     <div className={`flex flex-col items-center w-full md:w-[35%] justify-center`}>
                         <div className={`rounded-2xl overflow-hidden md:max-h-[200px] `}>
                             <Image
-                                src={'/images/images/backgrounds.webp'}
+                                src={'/images/images/backgrounds.png'}
                                 width={327}
                                 height={269}
                                 alt={'equipment photo'}
-                                className={`rounded-2xl w-full rounded-2xl relative top-[-55px]`}
+                                className={`rounded-2xl w-full rounded-2xl object-cover`}
                             />
                         </div>
                     </div>
                     <div className={`w-full md:w-[60%] flex flex-col items-center `}>
                         <h2 className={`text-[30px] border-b-[1px] border-[black] mb-4`}>{t('backgrounds_title')}</h2>
-                        <p>{t('backgrounds_description')}</p>
+                        <p className={`leading-[23px]`}>{t('backgrounds_description')}</p>
                     </div>
                 </div>
             </div>
