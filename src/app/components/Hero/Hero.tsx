@@ -1,15 +1,29 @@
 'use client';
 import type { NextComponentType, NextPageContext } from 'next';
 import { useTranslations } from 'next-intl';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.scss';
 interface Props {}
 
 const Hero: NextComponentType<NextPageContext, {}, Props> = (props: Props) => {
     const container = useRef<HTMLDivElement | null>(null);
     const t = useTranslations('Hero');
+    // const [isShow, setIsShow] = useState(false);
+    //
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setIsShow(true);
+    //     }, 5000);
+    // }, []);
     return (
         <>
+            {/*{isShow ? (*/}
+            {/*    <div*/}
+            {/*        className={`fixed backdrop-blur-sm w-[500px] h-[500px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#00000070] z-[99999]`}*/}
+            {/*    >*/}
+            {/*        <h1>Реклама</h1>*/}
+            {/*    </div>*/}
+            {/*) : null}*/}
             <div className={`${styles.heroText} h-[220px] md:h-[initial]`} ref={container}>
                 {/* <Image {...imageConfig.backgroundMain} className={styles.mainBg} /> */}
                 <div className={`${styles.wrapper}`}>
