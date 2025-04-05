@@ -33,11 +33,17 @@ const Hero: NextComponentType<NextPageContext, {}> = () => {
         const body: HTMLBodyElement | null = document.querySelector('body');
         const bodyBg: HTMLDivElement | null = document.querySelector('.body-bg');
         setElements({ body, bodyBg });
+        const showPromotion = sessionStorage.getItem('promotion');
+
         const timeOut = setTimeout(() => {
-            showAdvertising(true, body, bodyBg);
+            if (JSON.parse(showPromotion!)) {
+                showAdvertising(true, body, bodyBg);
+                sessionStorage.setItem('promotion', 'false');
+            }
         }, 3000);
         return () => {
             clearTimeout(timeOut);
+            showAdvertising(false, body, bodyBg);
         };
     }, []);
     return (

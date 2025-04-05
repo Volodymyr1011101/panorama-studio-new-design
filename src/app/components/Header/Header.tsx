@@ -3,7 +3,7 @@ import { imageConfig } from '@/lib/imageConfig';
 import type { NextComponentType, NextPageContext } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //@ts-ignore
 import Navigation from '../Navigation';
 import BurgerButton from '../ui/burgerButton/BurgerButton';
@@ -14,6 +14,9 @@ interface Props {}
 
 const Header: NextComponentType<NextPageContext, {}, Props> = () => {
     const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+    useEffect(() => {
+        sessionStorage.setItem('promotion', 'true');
+    }, []);
     const handleClick = () => {
         setIsShowMenu(!isShowMenu);
     };
