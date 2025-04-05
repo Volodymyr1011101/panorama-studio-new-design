@@ -28,6 +28,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     return (
         <html lang={locale}>
             <body className={` ${ebGaramond.className}`}>
+                <div className={`hidden body-bg bg-[#000000c2] fixed left-0 right-0 top-0 bottom-0 z-[8000]`}></div>
                 <NextIntlClientProvider messages={messages}>
                     <div className="max-w-[980px] m-auto overflow-hidden relative">
                         <Header />

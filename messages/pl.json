@@ -13,7 +13,12 @@
   },
   "Hero": {
     "subtitle": "Studio w sercu Wrocławia",
-    "description": "Panorama Studio  - miejsce, gdzie każdy, od początkującego fotografa do doświadczonego profesjonała, może zrealizować swoje pomysły."
+    "description": "Panorama Studio  - miejsce, gdzie każdy, od początkującego fotografa do doświadczonego profesjonała, może zrealizować swoje pomysły.",
+    "Promotion": {
+      "title": "Promocja!",
+      "description": "Do końca lata możesz zarezerwować dwie sale (White + Art) w cenie jednej! Więcej przestrzeni do Twojej sesji — bez dodatkowych kosztów."
+    },
+    "reservation": "Rezerwacja online"
   },
   "Rooms": {
     "rooms": "Nasze sale",
@@ -78,5 +83,4 @@
   "Contact": {
     "title": "Kontakt"
   }
-
 }
