@@ -62,7 +62,7 @@ const Hero: NextComponentType<NextPageContext, {}> = () => {
                         <Image
                             src={'/images/images/White27.jpg'}
                             width={200}
-                            height={400}
+                            height={266}
                             alt={'white'}
                             className={`rounded-[8px] w-[130px] sm:w-[160px] md:w-[200px] h-auto`}
                         />
@@ -72,7 +72,7 @@ const Hero: NextComponentType<NextPageContext, {}> = () => {
                         <Image
                             src={'/images/images/art20.JPG'}
                             width={200}
-                            height={400}
+                            height={266}
                             alt={'white'}
                             className={`rounded-[8px] w-[130px] sm:w-[160px] md:w-[200px] h-auto`}
                         />
