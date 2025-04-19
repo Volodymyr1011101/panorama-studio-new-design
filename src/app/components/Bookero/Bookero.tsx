@@ -23,23 +23,6 @@ const Bookero = ({ locale }: { locale: string }) => {
             };
 
             document.body.appendChild(script);
-
-            // <script type="text/javascript">
-            //     var bookero_config = {
-            //     id: '0HsRzho4v8IX',
-            //     container: 'bookero',
-            //     type: 'calendar',
-            //     position: '',
-            //     plugin_css: true,
-            //     lang: 'pl'
-            // };
-            //
-            //     (function() {
-            //     var d = document, s = d.createElement('script');
-            //     s.src = 'https://cdn.bookero.pl/plugin/v2/js/bookero-compiled.js';
-            //     d.body.appendChild(s);
-            // })();
-            // </script>
         }
     }, [locale]);
 
