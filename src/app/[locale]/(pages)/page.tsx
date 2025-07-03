@@ -7,8 +7,8 @@ import { getInfo } from '@/helpers';
 import ImageSlider from '@/app/components/ui/Slider/Slider';
 
 export default async function HomePage() {
-    const data = await getInfo();
-    console.log(data);
+    // const data = await getInfo();
+    // console.log(data);
 
     return (
         <div className={`px-4 pt-[102px] md:p-4 h-`}>
@@ -18,7 +18,9 @@ export default async function HomePage() {
             <section className={styles.roomsSection}>
                 <Rooms />
             </section>
-            {/*<section>{data && <ImageSlider reviews={data.reviews} url={data.url} />}</section>*/}
+            <section>
+                <ImageSlider />
+            </section>
             <section className=" mb-8">
                 <Gallery images={images2} header={'gallery_header'} />
             </section>

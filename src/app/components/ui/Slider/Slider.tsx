@@ -11,13 +11,13 @@ import { Rating } from 'react-simple-star-rating';
 import styles from './Slider.module.scss';
 import { useLocale } from 'next-intl';
 import { comment } from '@/app/[locale]/(pages)/types';
-import { getPostedTime, truncateText } from '@/helpers';
+import { getInfo, getPostedTime, truncateText } from '@/helpers';
 interface Props {
     reviews: comment[];
     url: string;
 }
 
-const ImageSlider = ({ reviews, url }: Props) => {
+const ImageSlider = () => {
     const locale = useLocale();
     const [swiper, setSwiper] = useState();
     const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -30,7 +30,28 @@ const ImageSlider = ({ reviews, url }: Props) => {
         textRefs.current.forEach(p => {
             if (p) truncateText(p, 3);
         });
-    }, [reviews]);
+    }, []);
+
+    const [data, setData] = useState<{
+        reviews: {
+            author_name: string;
+            profile_photo_url: string;
+            rating: number;
+            time: number;
+            text: string;
+        }[];
+        url: string;
+    } | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        getInfo()
+            .then((res: any) => setData(res))
+            .catch((err: any) => {
+                console.error('getInfo failed:', err);
+                setError('Не вдалося завантажити відгуки');
+            });
+    }, []);
 
     // @ts-ignore
     return (
@@ -68,7 +89,7 @@ const ImageSlider = ({ reviews, url }: Props) => {
                     setCurrentSlide(slide.activeIndex);
                 }}
             >
-                {reviews?.map((review, index) => (
+                {data?.reviews?.map((review, index) => (
                     <SwiperSlide key={review.author_name + index}>
                         <div className={`flex flex-col gap-4 bg-[#EFEFEF] p-3 relative rounded-[8px] min-h-[208px]`}>
                             <div className={`flex items-center justify-between text-[18px]`}>
@@ -81,7 +102,7 @@ const ImageSlider = ({ reviews, url }: Props) => {
                                     </div>
                                 </div>
                                 <div className={`absolute right-[7px] top-[7px] `}>
-                                    <a href={url} target={`_blank`}>
+                                    <a href={data.url} target={`_blank`}>
                                         <Image src={'/icons/google.svg'} alt={'google'} width={15} height={15} />
                                     </a>
                                 </div>
