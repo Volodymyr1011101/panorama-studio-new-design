@@ -9,6 +9,7 @@ import { getInfo } from '@/helpers';
 export default async function HomePage() {
     // const data = await getInfo();
     // console.log(data);
+
     return (
         <div className={`px-4 pt-[102px] md:p-4 h-`}>
             <section className={styles.heroSection}>
