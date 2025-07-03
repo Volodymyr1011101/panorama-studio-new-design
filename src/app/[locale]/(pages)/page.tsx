@@ -16,9 +16,7 @@ export default async function HomePage() {
             <section className={styles.roomsSection}>
                 <Rooms />
             </section>
-            <section>
-                <ImageSlider reviews={data.reviews} url={data.url} />
-            </section>
+            <section>{data && <ImageSlider reviews={data.reviews} url={data.url} />}</section>
             <section className=" mb-8">
                 <Gallery images={images2} header={'gallery_header'} />
             </section>
