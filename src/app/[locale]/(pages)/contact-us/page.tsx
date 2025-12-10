@@ -25,7 +25,7 @@ const Page = () => {
           panorama.wroclaw1@gmail.com
         </a>
         <a href={"tel:+48884702184"} className={`underline`}>
-          +48-884-702-184
+          +48 732 950 207
         </a>
         <p>NIP: 8993040290</p>
         <p>IRY CHIEF Iryna Tokarenko</p>
