@@ -1,6 +1,6 @@
 .title {
-    @apply absolute font-medium  text-[#ffffff] top-4 w-max text-center px-2 hover:underline bg-[#0000003d];
-    font-size: clamp(20px, 2vw, 1.5rem);
+    @apply absolute font-[300]  text-[#ffffff] top-4 w-max text-center px-2 hover:underline bg-[#0000003d];
+    font-size: clamp(14px, 2vw, 1.3rem);
     left: 50%;
     backdrop-filter: blur(5px);
     border-radius: 12px;

@@ -1,13 +1,8 @@
 .heroText {
-    background-image: url('/images/images/main-bg.png');
-    background-size: cover;
-    background-position: center;
     border-radius: 8px;
-    max-height: 300px;
-}
 
-.wrapper {
-    h1 {
-        font-size: clamp(32px, 4vw, 52px);
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }

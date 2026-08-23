@@ -6,7 +6,7 @@ export const imageConfig = {
     alt: "logo",
   },
   backgroundMain: {
-    src: "/images/images/main-bg.png",
+    src: "/main-bg.PNG",
     width: 1920,
     height: 700,
     alt: "bg",
@@ -36,7 +36,7 @@ export const imageConfig = {
     alt: "aquadark",
   },
   makeUp: {
-    src: "/images/images/makeup.webp",
+    src: "/images/images/makeup.JPG",
     width: 300,
     height: 400,
     alt: "makeup",
