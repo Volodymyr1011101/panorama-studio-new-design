@@ -26,7 +26,7 @@ const MakeUpContent = ({ slug }: { slug: string }) => {
         className={`flex flex-col md:flex-row md:justify-between md:border-b-[1px] md:border-t-[1px] border-[#000] rounded-tl-2xl rounded-bl-2xl inset-shadow-sm`}
       >
         <Image
-          src={"/images/makeup.JPG"}
+          src={"/images/images/makeup.JPG"}
           width={333}
           height={330}
           className={`rounded-2xl mb-8 md:mb-0 w-full md:w-[35%]`}
